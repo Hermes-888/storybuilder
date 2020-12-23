@@ -1,35 +1,35 @@
 <template>
     <div id="app">
-        <Board
-            :courseId=courseId
-            :title=title
-            :moreInfo=courseInfo
-            :itemHeaders=itemHeaders
-            :itemData=items
-        ></Board>
+        <StoryBoard
+            :courseId="courseId"
+            :courseTitle="courseTitle"
+            :courseInfo="courseInfo"
+            :itemHeaders="itemHeaders"
+            :itemData="items"
+        ></StoryBoard>
     </div>
 </template>
 
 <script>
-import Board from './components/board.vue';
+import StoryBoard from './components/StoryBoard.vue';
 
 export default {
     name: 'App',
     components: {
-        Board
+        StoryBoard
     },
     data () {
         return {
             courseId: '012345',
-            title: 'Name of course',
+            courseTitle: 'Name of course',
             courseInfo: 'Additional course information.',
-            itemHeaders: ['ID','Cues','Screen Text', 'Text Action', 'Image Info', 'Image Action', 'Image'],
+            itemHeaders: ['ID','Cues','Screen Text', 'Text Action', 'Image Info', 'Action', 'Image'],
             items: [
                 {
                     type: 'slide',
                     cellId: 'A',
-                    slideTitle: 'Introduction to Logic',
-                    slideInfo: 'modified from another course'
+                    fullText: 'Introduction to Logic',
+                    screenText: 'modified from another course'
                 },
                 {
                     type: 'data',
@@ -40,9 +40,10 @@ export default {
                     imageDescription: 'Image with the <b>Qualifications for:</b> sign on the window.',
                     imagePresentation: 'Radio Group and text field?',
                     imageData: {
-                        url: 'path to image file',
+                        url: 'images/sampleImage.png',
                         dataUrl: '320 x 180 thumbnail of image'
-                    }
+                    },
+                    learningExtras: {}
                 },
                 {
                     type: 'data',
@@ -51,11 +52,12 @@ export default {
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'Animate the smoke.',
-                    imagePresentation: 'same tags?',
+                    imagePresentation: 'tags?',
                     imageData: {
-                        url: 'path to image file',
+                        url: '',
                         dataUrl: '320 x 180 thumbnail of image'
-                    }
+                    },
+                    learningExtras: {}
                 },
                 {
                     type: 'data',
@@ -64,43 +66,74 @@ export default {
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',
-                    imagePresentation: 'same tags?',
+                    imagePresentation: 'tags?',
                     imageData: {
-                        url: 'path to image file',
+                        url: 'images/sampleImage.png',
                         dataUrl: '320 x 180 thumbnail of image'
-                    }
+                    },
+                    learningExtras: {}
                 },
                 {
                     type: 'slide',
                     cellId: 'B',
-                    slideTitle: 'Getting Started',
-                    slideInfo: 'modified from another course'
+                    fullText: 'Getting Started',
+                    screenText: 'modified from another course'
                 },
                 {
                     type: 'data',
-                    cellId: '01-01',
-                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
-                    screenText: '<b>Qualifications for:</b> <br>html capable.',
-                    textPresentation: 'tags? for Add, Replace, Replace All, Remove, ... and notes field',
-                    imageDescription: 'Image with the <b>Qualifications for:</b> sign on the window.',
-                    imagePresentation: 'Radio Group and text field?',
-                    imageData: {
-                        url: 'path to image file',
-                        dataUrl: '320 x 180 thumbnail of image'
-                    }
-                },
-                {
-                    type: 'data',
-                    cellId: '01-03',
+                    cellId: '02-01',
                     fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',
                     imagePresentation: 'same tags?',
                     imageData: {
-                        url: 'path to image file',
+                       url: 'images/sampleImage.png',
                         dataUrl: '320 x 180 thumbnail of image'
-                    }
+                    },
+                    learningExtras: {}
+                },
+                {
+                    type: 'data',
+                    cellId: '02-02',
+                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    screenText: '<b>Qualifications for:</b> <br>html capable.',
+                    textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
+                    imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',
+                    imagePresentation: 'same tags?',
+                    imageData: {
+                       url: 'images/sampleImage.png',
+                        dataUrl: '320 x 180 thumbnail of image'
+                    },
+                    learningExtras: {}
+                },
+                {
+                    type: 'data',
+                    cellId: '02-03',
+                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    screenText: '<b>Qualifications for:</b> <br>html capable.',
+                    textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
+                    imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',
+                    imagePresentation: 'same tags?',
+                    imageData: {
+                       url: 'images/sampleImage.png',
+                        dataUrl: '320 x 180 thumbnail of image'
+                    },
+                    learningExtras: {}
+                },
+                {
+                    type: 'data',
+                    cellId: '02-04',
+                    fullText: '',
+                    screenText: '',
+                    textPresentation: '',
+                    imageDescription: '',
+                    imagePresentation: '',
+                    imageData: {
+                        url: '',
+                        dataUrl: ''
+                    },
+                    learningExtras: {}
                 }
             ]
         }
@@ -110,7 +143,7 @@ export default {
          * load data from db to vuex store
          */
     },
-    methods: {}
+    //methods: {}
 }
 </script>
 
@@ -119,7 +152,7 @@ export default {
     font-family: 'Arimo', Helvetica, Arial, sans-serif;/* Segoe for Spanish? */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     color: #000000;
 }
