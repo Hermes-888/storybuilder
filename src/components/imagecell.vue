@@ -122,11 +122,12 @@ export default {
 
             this.dataUrl = this.imgToBase64(img);
             this.imageData.dataUrl = this.dataUrl;
-            console.log('converted:', this.dataUrl);
+            // console.log('converted:', this.dataUrl);
             // const img2 = document.createElement('img');
             // img2.src = this.dataUrl;
             // document.body.appendChild(img2);
-        },// combine functions?
+        },
+
         imgToBase64: function(img) {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
@@ -137,9 +138,6 @@ export default {
             ctx.drawImage(img, 0, 0, img.width, img.height,// source rectangle
                    0, 0, canvas.width, canvas.height);// destination rectangle
 
-            // resize canvas to 320 x 180
-            // canvas.width = 320;// breaks image
-            // canvas.height = 180;// smaller dataUrl
             // document.body.appendChild(canvas);
 
             // img.width = 320;
@@ -147,44 +145,7 @@ export default {
             // document.body.appendChild(img);// looks good
 
             return canvas.toDataURL();//'image/jpeg'
-        },
-        thumbnailify: function(base64Image, targetSize, callback) {
-            var img = new Image();
-            let targetWidth = 320;
-            let targetHeight = 180;
-
-            img.onload = function() {
-                var width = img.width,
-                    height = img.height,
-                    canvas = document.createElement('canvas'),
-                    ctx = canvas.getContext("2d");
-
-                canvas.width = targetWidth
-                canvas.height = targetHeight;
-
-                ctx.drawImage(
-                    img,
-                    width > height ? (width - height) / 2 : 0,
-                    height > width ? (height - width) / 2 : 0,
-                    width > height ? height : width,
-                    width > height ? height : width,
-                    0, 0,
-                    targetWidth, targetHeight
-                );
-
-                callback(canvas.toDataURL());
-            };
-
-            img.src = base64Image;
-            },
-            /*
-            var sourceImage = document.getElementById("source-image"),
-                    thumbnail = document.getElementById("thumbnail");
-
-            thumbnailify(sourceImage.src, 100, function(base64Thumbnail) {
-                thumbnail.src = base64Thumbnail;
-            });
-            */
+        }
     }
 }
 </script>

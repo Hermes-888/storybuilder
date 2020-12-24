@@ -28,14 +28,14 @@ tooltip instructions on each button.
 
 5 Questions:
 
+https://github.com/Hermes-888/storybuilder
 
 How to handle the text and image presentation columns. 
 tags for Add, Replace, Replace All, Remove, ... plus notes. 
 or a Radio button group to select an action and a text field for notes. 
 
-
 Upload resizes very large images to 1920 x 1080. 
-Base64 a 320 x 180 thumbnail of image and store it in the dataUrl. 
+
 
 ### Toolbar Menu: 
 
