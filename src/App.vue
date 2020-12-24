@@ -1,12 +1,12 @@
 <template>
     <div id="app">
-        <StoryBoard
+        <story-board
             :courseId="courseId"
             :courseTitle="courseTitle"
             :courseInfo="courseInfo"
             :itemHeaders="itemHeaders"
             :itemData="items"
-        ></StoryBoard>
+        ></story-board>
     </div>
 </template>
 
@@ -30,11 +30,13 @@ export default {
                     cellId: 'A',
                     fullText: 'Introduction to Logic',
                     screenText: 'modified from another course'
+                    // it would be nice to store the data rows here
+                    // or the data rows count, for Collapse Slide group
                 },
                 {
                     type: 'data',
                     cellId: '01-01',
-                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    fullText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ... and notes field',
                     imageDescription: 'Image with the <b>Qualifications for:</b> sign on the window.',
@@ -48,27 +50,27 @@ export default {
                 {
                     type: 'data',
                     cellId: '01-02',
-                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    fullText: 'Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'Animate the smoke.',
                     imagePresentation: 'tags?',
                     imageData: {
                         url: '',
-                        dataUrl: '320 x 180 thumbnail of image'
+                        dataUrl: ''
                     },
                     learningExtras: {}
                 },
                 {
                     type: 'data',
                     cellId: '01-03',
-                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    fullText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.',
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',
                     imagePresentation: 'tags?',
                     imageData: {
-                        url: 'images/sampleImage.png',
+                        url: 'images/sampleImg.jpg',
                         dataUrl: '320 x 180 thumbnail of image'
                     },
                     learningExtras: {}
@@ -82,7 +84,7 @@ export default {
                 {
                     type: 'data',
                     cellId: '02-01',
-                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    fullText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.',
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',
@@ -96,13 +98,13 @@ export default {
                 {
                     type: 'data',
                     cellId: '02-02',
-                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    fullText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.',
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',
                     imagePresentation: 'same tags?',
                     imageData: {
-                       url: 'images/sampleImage.png',
+                       url: 'images/sampleImg.jpg',
                         dataUrl: '320 x 180 thumbnail of image'
                     },
                     learningExtras: {}
@@ -110,7 +112,7 @@ export default {
                 {
                     type: 'data',
                     cellId: '02-03',
-                    fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
+                    fullText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.',
                     screenText: '<b>Qualifications for:</b> <br>html capable.',
                     textPresentation: 'tags? for Add, Replace, Replace All, Remove, ...',
                     imageDescription: 'white background with image in <u>bottom <b>left</b> corner</u>.',

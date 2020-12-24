@@ -60,7 +60,7 @@ export default {
             default() { return [] }
         },
         itemData: {
-            type: Array,
+            type: Array,// pass to StoryTable
             default() { return [] }
         }
     },

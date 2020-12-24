@@ -2,6 +2,7 @@
     <div class="story-table">
         <v-table
             :data="itemData"
+            selectionMode="single"
             selectedClass="selected-row"
             @selectionChanged="rowSelected"
         >
@@ -40,8 +41,10 @@
                     <td v-if="row.type === 'data'">{{ row.imagePresentation }}</td>
 
                     <td v-if="row.type === 'data'">
-                        <Imagecell
+                        <imagecell
                             :imageData="row.imageData"
+                            @openModal="previewImage"
+                            @click="setCurrentThumbnail"
                         />
                     </td>
                 </v-tr>
@@ -57,11 +60,18 @@
                 {{ selected }}
             </div>
         </div>
+        <!-- overlay full image v-if="imagePath" -->
+        <image-modal
+            v-show="modalOpen"
+            :imagePath="imagePath"
+            @closeModal="modalOpen = !modalOpen"
+        />
     </div>
 </template>
 
 <script>
 import Imagecell from './imagecell.vue';
+import ImageModal from './ImageModal.vue';
 
 export default {
     /**
@@ -70,7 +80,7 @@ export default {
      * https://github.com/tochoromero/vuejs-smart-table
      * https://github.com/tochoromero/vuejs-smart-table/tree/master/docs
      * 
-     * type: 'data', // or 'slide' to display Slide title and info
+     * type: 'data', // or 'slide' to display Slide ID, title and info row
         cellId: '01-01',
         fullText: 'All the text for this cell. All the text for this cell. All the text for this cell. ',
         screenText: '<b>Qualifications for:</b> <br>html capable.',
@@ -85,7 +95,8 @@ export default {
      */
     name: "StoryTable",
     components: {
-        Imagecell
+        Imagecell,
+        ImageModal
     },
     props: {
         itemHeaders: {
@@ -99,13 +110,18 @@ export default {
     },
     data () {
         return {
-            selectedRows: [],
+            selectedRows: [],// single
+            modalOpen: false,// thumbnail image full size, w/stats panel?
+            imagePath: null,// url to full image
         }
     },
     mounted () {
-        // this.$nextTick(function () {
-        //     console.log('headers:', this.itemHeaders);
-        // });
+        this.$nextTick(function () {
+            // console.log('headers:', this.itemHeaders);
+            // if (this.itemData[0].imageData) {
+            //     this.imageData = this.itemData[0].imageData;// setCurrentThumbnail
+            // }
+        });
     },
     methods: {
         rowSelected: function(rows) {
@@ -114,8 +130,25 @@ export default {
             // console.log('headers:', this.itemHeaders);
         },
         collapseSlide: function(index) {
-            console.log('collapse', index);
-        }
+            console.log('collapse row', index, this.itemData[index]);
+        },
+
+        /**
+         * set from ImageCell clicked
+         */
+        setCurrentThumbnail: function(cell) {
+            console.log('setCurrentThumbnail:', cell);
+        },
+
+        /**
+         * Preview image in a modal with stats panel?
+         * click anywhere to close the modal
+         */
+        previewImage: function(imagePath) {
+            // console.log('preview image in modal', imagePath);
+            this.imagePath = imagePath;
+            this.modalOpen = true;
+        },
     }
 }
 </script>
