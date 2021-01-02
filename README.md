@@ -1,28 +1,34 @@
 # Story Builder
 
-An online storyboard application with rich text and image tools.
+An online storyboard building/managment application with rich text and image tools. 
 
 ![](public/images/storyboard.png)
 
-Story Builder can import and export xls files.
-New, Save, SaveAs (for modified courses), Open 
+Story Builder can import and export xls files. 
+Project status indicator. In Progress, Published ..., 
+Export Id and Cues text column. (Narration script) 
+Button to download all Images to a local folder. 
 
-Context menu: Insert Row, copy, paste, ... (or Toolbar Menu across top) 
+Context menu & Toolbar Menu across top
+Insert Row, Copy, Paste, Delete Rows ... 
+Multiple row selection. 
 Drag Rows to change the order? 
 Columns are resizeable? 
 Slide Rows can collapse its slide data rows. (#grouping) 
-Cells are Rich Text (Bold, italic, TBD, ...) 
-Only the Screen Text and Image Info cells? 
+Cells are Rich Text (Bold, italic, ol & ul lists, TBD, ...) 
+Rich text only in the Screen Text and Image Info cells? 
+Plain text in the Cues column. 
 
 Images are displayed as a 320 x 180 thumbnail in a cell. 
 Preview the full image in a modal by clicking on the thumbnail. 
 Optional Notes and image stats panel.  
 
-Upload and Download buttons save and retrieve the full image stored using Filepond? 
+Upload and Download buttons save and retrieve the full image. 
+Stored using Filepond? 
 Select an image already in Filepond?
 
 
-tooltip instructions on each button. 
+Tooltip instructions on buttons. 
 
 ## ToDo:
 
@@ -35,6 +41,7 @@ tags for Add, Replace, Replace All, Remove, ... plus notes.
 or a Radio button group to select an action and a text field for notes. 
 
 Upload resizes very large images to 1920 x 1080. 
+Upload generates a thumbnail? 
 
 
 ### Toolbar Menu: 
@@ -42,6 +49,7 @@ Upload resizes very large images to 1920 x 1080.
 https://github.com/motla/vue-file-toolbar-menu
 
 https://github.com/motla/vue-document-editor
+
 
 ### Rich Text Editor: 
 
